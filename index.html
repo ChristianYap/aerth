@@ -3,36 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aerth Access Portal</title>
+  <title>Aerth Access</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #cce3de, #edf6f9);
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      color: #ccc;
     }
 
     .container {
-      background: white;
+      background: #111;
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
       text-align: center;
       width: 90%;
       max-width: 400px;
+      transition: all 0.3s ease-in-out;
     }
 
     h1 {
+      color: #00e5ff;
       margin-bottom: 0.5rem;
-      color: #006d77;
+      font-size: 1.8rem;
     }
 
     .subtitle {
       font-size: 0.9rem;
-      color: #555;
+      color: #aaa;
       margin-bottom: 1.5rem;
     }
 
@@ -40,34 +43,56 @@
       width: 100%;
       padding: 0.75rem;
       margin-bottom: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+      border: none;
+      border-radius: 6px;
+      background: #333;
+      color: #eee;
       font-size: 1rem;
+    }
+
+    input::placeholder {
+      color: #777;
     }
 
     button {
       width: 100%;
       padding: 0.75rem;
-      background-color: #38b000;
+      background-color: #00b300;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 1rem;
       cursor: pointer;
+      transition: background 0.3s;
     }
 
     button:hover {
-      background-color: #2a8c00;
+      background-color: #009900;
     }
 
     #message {
       margin-top: 1rem;
-      color: red;
+      color: #ff4d4d;
+      font-size: 0.9rem;
+    }
+
+    /* Shake animation for error feedback */
+    .shake {
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-8px); }
+      80% { transform: translateX(8px); }
+      100% { transform: translateX(0); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="formContainer">
     <h1>Aerth</h1>
     <p class="subtitle">Cleaner Environment through ML, AI, and Data Science</p>
     
@@ -78,14 +103,19 @@
 
   <script>
     function validateCode() {
-      const correctCode = "FLIGHT2025"; // change this as needed
+      const correctCode = "FLIGHT2025";
       const input = document.getElementById("codeInput").value.trim();
       const message = document.getElementById("message");
+      const form = document.getElementById("formContainer");
 
       if (input === correctCode) {
-        window.location.href = "dashboard.html"; // change this to your target page
+        window.location.href = "dashboard.html";
       } else {
         message.textContent = "Invalid code. Please reach out to the web owner.";
+        form.classList.add("shake");
+        setTimeout(() => {
+          form.classList.remove("shake");
+        }, 400);
       }
     }
   </script>
