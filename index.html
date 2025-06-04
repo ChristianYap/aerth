@@ -1,127 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aerth Access</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      color: #ccc;
-    }
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Work Sans', sans-serif;
+    background: linear-gradient(to bottom, #0e1e25, #1c3b45);
+    color: #d4d4d4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .container {
-      background: #111;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      text-align: center;
-      width: 90%;
-      max-width: 400px;
-      transition: all 0.3s ease-in-out;
-    }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    h1 {
-      color: #00e5ff;
-      margin-bottom: 0.4rem;
-      font-size: 1.9rem;
-      font-weight: 700;
-    }
+  .container {
+    background-color: #111;
+    padding: 2rem 2rem 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+  }
 
-    .subtitle {
-      font-size: 0.95rem;
-      color: #aaa;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-    }
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+    color: #e0f7fa;
+  }
 
-    input[type="text"] {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 6px;
-      background: #333;
-      color: #eee;
-      font-size: 1rem;
-    }
+  .subtitle {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 1.5rem;
+  }
 
-    input::placeholder {
-      color: #777;
-    }
+  input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: #eee;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
 
-    button {
-      width: 100%;
-      padding: 0.75rem;
-      background-color: #00b300;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
+  input::placeholder {
+    color: #777;
+  }
 
-    button:hover {
-      background-color: #009900;
-    }
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #1f7a3e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
 
-    #message {
-      margin-top: 1rem;
-      color: #ff4d4d;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+  button:hover {
+    background-color: #186435;
+  }
 
-    .shake {
-      animation: shake 0.4s;
-    }
+  #message {
+    margin-top: 1rem;
+    color: #ff6b6b;
+    font-size: 0.9rem;
+  }
 
-    @keyframes shake {
-      0% { transform: translateX(0); }
-      20% { transform: translateX(-8px); }
-      40% { transform: translateX(8px); }
-      60% { transform: translateX(-8px); }
-      80% { transform: translateX(8px); }
-      100% { transform: translateX(0); }
-    }
-  </style>
-</head>
-<body>
-  <div class="container" id="formContainer">
-    <h1>Aerth</h1>
-    <p class="subtitle">Cleaner Environment through ML, AI, and Data Science</p>
-    
-    <input type="text" id="codeInput" placeholder="Enter access code" />
-    <button onclick="validateCode()">Submit</button>
-    <p id="message"></p>
-  </div>
+  .shake {
+    animation: shake 0.4s;
+  }
 
-  <script>
-    function validateCode() {
-      const correctCode = "FLIGHT2025";
-      const input = document.getElementById("codeInput").value.trim();
-      const message = document.getElementById("message");
-      const form = document.getElementById("formContainer");
-
-      if (input === correctCode) {
-        window.location.href = "dashboard.html";
-      } else {
-        message.textContent = "Invalid code. Please reach out to the web owner.";
-        form.classList.add("shake");
-        setTimeout(() => {
-          form.classList.remove("shake");
-        }, 400);
-      }
-    }
-  </script>
-</body>
-</html>
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    60% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    100% { transform: translateX(0); }
+  }
+</style>
