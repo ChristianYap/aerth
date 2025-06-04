@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aerth Access Portal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #cce3de, #edf6f9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      color: #006d77;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1.5rem;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #38b000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2a8c00;
+    }
+
+    #message {
+      margin-top: 1rem;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Aerth</h1>
+    <p class="subtitle">Cleaner Environment through ML, AI, and Data Science</p>
+    
+    <input type="text" id="codeInput" placeholder="Enter access code" />
+    <button onclick="validateCode()">Submit</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function validateCode() {
+      const correctCode = "FLIGHT2025"; // change this as needed
+      const input = document.getElementById("codeInput").value.trim();
+      const message = document.getElementById("message");
+
+      if (input === correctCode) {
+        window.location.href = "dashboard.html"; // change this to your target page
+      } else {
+        message.textContent = "Invalid code. Please reach out to the web owner.";
+      }
+    }
+  </script>
+</body>
+</html>
