@@ -92,4 +92,39 @@
       0% { transform: translateX(0); }
       20% { transform: translateX(-5px); }
       40% { transform: translateX(5px); }
-      60% { transform: translateX(-5px);
+      60% { transform: translateX(-5px); }
+      80% { transform: translateX(5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <h1>Aerth</h1>
+    <p class="subtitle">Cleaner Environment through ML, AI, and Data Science</p>
+
+    <input type="text" id="codeInput" placeholder="Enter access code" />
+    <button onclick="validateCode()">Submit</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function validateCode() {
+      const correctCode = "FLIGHT2025";
+      const input = document.getElementById("codeInput").value.trim();
+      const message = document.getElementById("message");
+      const form = document.getElementById("formContainer");
+
+      if (input === correctCode) {
+        window.location.href = "dashboard.html"; // update this to your real target
+      } else {
+        message.textContent = "Invalid code. Please reach out to the web owner.";
+        form.classList.add("shake");
+        setTimeout(() => {
+          form.classList.remove("shake");
+        }, 400);
+      }
+    }
+  </script>
+</body>
+</html>
